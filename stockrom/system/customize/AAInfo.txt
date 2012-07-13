@@ -1,0 +1,6 @@
+TaskID : 264110
+Project : SHOOTER_U_ICS_35_S
+SKU : hTC Asia WWE[707]
+ROM Ver : 3.28.707.1
+Customization Id : 385946
+RCMS Id : 153

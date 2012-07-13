@@ -1,0 +1,3 @@
+post-build=htc_asia_wwe/htc_shooteru/shooteru:4.0.3/IML74K/385730.1:user/release-keys
+post-timestamp=1338364609
+pre-device=shooteru
