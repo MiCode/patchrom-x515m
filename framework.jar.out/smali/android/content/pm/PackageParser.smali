@@ -7606,7 +7606,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_4
     
     const/4 v3, 0x0
 

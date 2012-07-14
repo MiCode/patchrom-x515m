@@ -6972,7 +6972,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :goto_0
 
     .line 3617
     new-instance v0, Ljava/lang/StringBuilder;
