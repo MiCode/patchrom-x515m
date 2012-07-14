@@ -18,11 +18,12 @@ local-miui-modified-apps := Phone ThemeManager Mms MiuiHome Settings MiuiSystemU
 local-miui-removed-apps  := LatinIME MiuiGallery
 
 # All apps need to be reserved from original ZIP file
-local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation Bluetooth BrcmBluetoothServices \
-	CertInstaller CustomizationSettingsProvider DefaultContainerService DFPI DrmProvider FilePicker GoogleTTS \
-	HTC_IME HtcBeatsNotify HTCCamera HtcFMRadio HtcListen HTMLViewer KeyChain LiveWallpapers LMW MarketUpdater \
-	NoiseField OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup SmartNetwork Stk \
-	talkback TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter FaceLock HtcMusicEnhancer HTCAlbum
+local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation \
+	CertInstaller CustomizationSettingsProvider DefaultContainerService DFPI DrmProvider GoogleTTS \
+	HTC_IME HTCCamera HtcFMRadio HTMLViewer KeyChain LiveWallpapers LMW \
+	NoiseField OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup SmartNetwork \
+	talkback TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter FaceLock HtcMusicEnhancer HTCAlbum \
+	MediaProvider
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -53,6 +54,7 @@ local-zip-misc:
 
 	@echo add system config
 	cp other/system_etc/* $(ZIP_DIR)/system/etc/
+	cp other/system_xbin/* $(ZIP_DIR)/system/xbin/
 
 	@echo delete redundance files
 	rm -f $(ZIP_DIR)/system/customize/resource/*.png
