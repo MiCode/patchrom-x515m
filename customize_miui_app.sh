@@ -29,6 +29,7 @@ if [ $1 = "ThemeManager" ];then
 fi
 
 if [ $1 = "MiuiHome" ];then
+echo "MiuiHome values merge!!!"
     $XMLMERGYTOOL $1/res/values $2/res/values
 fi
 
@@ -45,8 +46,3 @@ if [ $1 = "Settings" ];then
 
     $XMLMERGYTOOL $1/res/values $2/res/values
 fi
-
-if [ $1 = "MiuiGallery" ];then
-    $XMLMERGYTOOL $1/res/values $2/res/values
-fi
-
