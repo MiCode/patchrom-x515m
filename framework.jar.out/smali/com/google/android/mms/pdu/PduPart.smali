@@ -102,8 +102,6 @@
 
 
 # instance fields
-.field private mExtraUri:Landroid/net/Uri;
-
 .field private mPartData:[B
 
 .field private mPartHeader:Ljava/util/Map;
@@ -119,10 +117,6 @@
 .end field
 
 .field private mUri:Landroid/net/Uri;
-
-.field private mVale:J
-
-.field private mVals:J
 
 
 # direct methods
@@ -166,29 +160,20 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 134
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 110
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mPartHeader:Ljava/util/Map;
 
-    .line 115
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mUri:Landroid/net/Uri;
 
-    .line 120
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mPartData:[B
 
-    .line 127
-    iput-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mExtraUri:Landroid/net/Uri;
-
-    .line 135
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mPartHeader:Ljava/util/Map;
 
-    .line 136
     return-void
 .end method
 
@@ -529,16 +514,6 @@
     return-object v0
 .end method
 
-.method public getExtraUri()Landroid/net/Uri;
-    .locals 1
-
-    .prologue
-    .line 425
-    iget-object v0, p0, Lcom/google/android/mms/pdu/PduPart;->mExtraUri:Landroid/net/Uri;
-
-    return-object v0
-.end method
-
 .method public getFilename()[B
     .locals 2
 
@@ -585,26 +560,6 @@
     check-cast v0, [B
 
     return-object v0
-.end method
-
-.method public getVcalEnd()J
-    .locals 2
-
-    .prologue
-    .line 441
-    iget-wide v0, p0, Lcom/google/android/mms/pdu/PduPart;->mVale:J
-
-    return-wide v0
-.end method
-
-.method public getVcalStart()J
-    .locals 2
-
-    .prologue
-    .line 433
-    iget-wide v0, p0, Lcom/google/android/mms/pdu/PduPart;->mVals:J
-
-    return-wide v0
 .end method
 
 .method public setCharset(I)V
@@ -910,18 +865,6 @@
     return-void
 .end method
 
-.method public setExtraUri(Landroid/net/Uri;)V
-    .locals 0
-    .parameter "uri"
-
-    .prologue
-    .line 416
-    iput-object p1, p0, Lcom/google/android/mms/pdu/PduPart;->mExtraUri:Landroid/net/Uri;
-
-    .line 417
-    return-void
-.end method
-
 .method public setFilename([B)V
     .locals 2
     .parameter "fileName"
@@ -985,29 +928,5 @@
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 354
-    return-void
-.end method
-
-.method public setVcalEnd(J)V
-    .locals 0
-    .parameter "value"
-
-    .prologue
-    .line 437
-    iput-wide p1, p0, Lcom/google/android/mms/pdu/PduPart;->mVale:J
-
-    .line 438
-    return-void
-.end method
-
-.method public setVcalStart(J)V
-    .locals 0
-    .parameter "value"
-
-    .prologue
-    .line 429
-    iput-wide p1, p0, Lcom/google/android/mms/pdu/PduPart;->mVals:J
-
-    .line 430
     return-void
 .end method

@@ -29,10 +29,6 @@
 
 .field public static final EXTRA_TYPES:Ljava/lang/String; = "types"
 
-.field public static final INVALIDATED_CONTENTS:Ljava/lang/String; = "invalidated"
-
-.field public static final RTT_EVDO_ERROR_ACTION:Ljava/lang/String; = "android.provider.Telephony.RTT_EVDO_error"
-
 
 # direct methods
 .method private constructor <init>()V

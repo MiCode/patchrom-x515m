@@ -146,6 +146,13 @@
 
 .field public static final sFileExtensions:Ljava/lang/String;
 
+.field public static final FILE_TYPE_APE:I = 0x3e9
+
+.field private static final FIRST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
+
+.field private static final LAST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
+
+
 .field private static sFileTypeMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -306,14 +313,6 @@
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 205
-    invoke-static {}, Landroid/media/MediaFile;->isWMAEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 206
     const-string v2, "WMA"
 
     const/4 v3, 0x6
@@ -476,166 +475,154 @@
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 234
     const-string v2, "RTX"
 
     const-string v3, "audio/midi"
 
     invoke-static {v2, v6, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 235
     const-string v2, "OTA"
 
     const-string v3, "audio/midi"
 
     invoke-static {v2, v6, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 236
     const-string v2, "MXMF"
 
     const-string v3, "audio/midi"
 
     invoke-static {v2, v6, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 238
+    const-string v2, "APE"
+
+    const/16 v3, 0x3e9
+
+    const-string v4, "audio/x-monkeys-audio"
+
+    invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+
     const-string v2, "MPEG"
 
-    const-string/jumbo v3, "video/mpeg"
+    const-string v3, "video/mpeg"
 
     invoke-static {v2, v10, v3, v7}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 239
     const-string v2, "MPG"
 
-    const-string/jumbo v3, "video/mpeg"
+    const-string v3, "video/mpeg"
 
     invoke-static {v2, v10, v3, v7}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 240
     const-string v2, "MP4"
 
-    const-string/jumbo v3, "video/mp4"
+    const-string v3, "video/mp4"
 
     invoke-static {v2, v10, v3, v7}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 241
     const-string v2, "M4V"
 
     const/16 v3, 0x16
 
-    const-string/jumbo v4, "video/mp4"
+    const-string v4, "video/mp4"
 
     invoke-static {v2, v3, v4, v7}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 242
     const-string v2, "3GP"
 
     const/16 v3, 0x17
 
-    const-string/jumbo v4, "video/3gpp"
+    const-string v4, "video/3gpp"
 
     invoke-static {v2, v3, v4, v9}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 243
     const-string v2, "3GPP"
 
     const/16 v3, 0x17
 
-    const-string/jumbo v4, "video/3gpp"
+    const-string v4, "video/3gpp"
 
     invoke-static {v2, v3, v4, v9}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 244
     const-string v2, "3G2"
 
     const/16 v3, 0x18
 
-    const-string/jumbo v4, "video/3gpp2"
+    const-string v4, "video/3gpp2"
 
     invoke-static {v2, v3, v4, v9}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 245
     const-string v2, "3GPP2"
 
     const/16 v3, 0x18
 
-    const-string/jumbo v4, "video/3gpp2"
+    const-string v4, "video/3gpp2"
 
     invoke-static {v2, v3, v4, v9}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 246
     const-string v2, "MKV"
 
     const/16 v3, 0x1b
 
-    const-string/jumbo v4, "video/x-matroska"
+    const-string v4, "video/x-matroska"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 247
     const-string v2, "WEBM"
 
     const/16 v3, 0x20
 
-    const-string/jumbo v4, "video/webm"
+    const-string v4, "video/webm"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 248
     const-string v2, "TS"
 
     const/16 v3, 0x1c
 
-    const-string/jumbo v4, "video/mp2ts"
+    const-string v4, "video/mp2ts"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 249
     const-string v2, "AVI"
 
     const/16 v3, 0x1d
 
-    const-string/jumbo v4, "video/avi"
+    const-string v4, "video/avi"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 250
     const-string v2, "FLV"
 
     const/16 v3, 0x14
 
-    const-string/jumbo v4, "video/x-flv"
+    const-string v4, "video/x-flv"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 252
     invoke-static {}, Landroid/media/MediaFile;->isWMVEnabled()Z
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 253
     const-string v2, "WMV"
 
     const/16 v3, 0x19
 
-    const-string/jumbo v4, "video/x-ms-wmv"
+    const-string v4, "video/x-ms-wmv"
 
     const v5, 0xb981
 
     invoke-static {v2, v3, v4, v5}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 254
     const-string v2, "ASF"
 
     const/16 v3, 0x1a
 
-    const-string/jumbo v4, "video/x-ms-asf"
+    const-string v4, "video/x-ms-asf"
 
     invoke-static {v2, v3, v4}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 257
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v3, 0x40
@@ -1812,10 +1799,12 @@
 .end method
 
 .method public static isAudioFileType(I)Z
-    .locals 2
+    .locals 3
     .parameter "fileType"
 
     .prologue
+    const/16 v2, 0x3e9
+
     const/4 v0, 0x1
 
     .line 329
@@ -1837,7 +1826,14 @@
     :cond_1
     const/16 v1, 0x33
 
-    if-ne p0, v1, :cond_3
+    if-ne p0, v1, :cond_4
+
+    goto :goto_0    
+    
+    :cond_4
+    if-lt p0, v2, :cond_3
+
+    if-gt p0, v2, :cond_3
 
     :cond_2
     :goto_0

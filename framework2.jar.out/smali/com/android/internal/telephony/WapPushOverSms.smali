@@ -750,7 +750,37 @@
 
     invoke-static {v0, v5, v14, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto/16 :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mContext:Landroid/content/Context;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v14}, Lmiui/provider/ExtraTelephony;->checkFirewallForWapPush(Landroid/content/Context;[B)Z
+
+    move-result v21
+
+    if-eqz v21, :goto_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mSmsDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
+
+    move-object/from16 v22, v0
+
+    const/16 v23, 0x1
+
+    const/16 v24, -0x1
+
+    const/16 v25, 0x0
+
+    invoke-virtual/range {v22 .. v25}, Lcom/android/internal/telephony/SMSDispatcher;->acknowledgeLastIncomingSms(ZILandroid/os/Message;)V
+
+    const/16 v21, -0x1
+
+    goto/16 :goto_0
 
     .line 269
     .end local v5           #dataIndex:I
@@ -883,6 +913,14 @@
     move-object/from16 v1, v22
 
     invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+
+    const-string v21, "address"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 330
     if-eqz p2, :cond_d

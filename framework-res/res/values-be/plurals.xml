@@ -76,7 +76,7 @@
         <item quantity="one">Адкрытая сетка Wi-Fi даступная</item>
     </plurals>
     <plurals name="matches_found">
-        <item quantity="other">%d з %d</item>
+        <item quantity="other">%1$d з %2$d</item>
         <item quantity="one">1 супадзенне</item>
     </plurals>
 </resources>

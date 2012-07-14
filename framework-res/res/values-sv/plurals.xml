@@ -76,7 +76,7 @@
         <item quantity="one">Öppna Wi-Fi-nätverk är tillgängliga</item>
     </plurals>
     <plurals name="matches_found">
-        <item quantity="other">%d of %d</item>
+        <item quantity="other">%1$d of %2$d</item>
         <item quantity="one">1 träff</item>
     </plurals>
     <plurals name="wimax_available">

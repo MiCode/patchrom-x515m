@@ -29,13 +29,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
     if-nez p2, :cond_0
 
-    .line 56
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "EncodedStringValue: Text-string is null."
@@ -71,12 +68,10 @@
     .parameter "data"
 
     .prologue
-    .line 74
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
     :try_start_0
-    const-string/jumbo v1, "utf-8"
+    const-string v1, "utf-8"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
@@ -356,83 +351,55 @@
 
     throw v2
 
-    .line 168
     :cond_0
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     if-nez v2, :cond_1
 
-    .line 169
     array-length v2, p1
 
     new-array v2, v2, [B
 
     iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
-    .line 170
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     array-length v3, p1
 
     invoke-static {p1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 192
     :goto_0
     return-void
 
-    .line 172
     :cond_1
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 174
     .local v1, newTextString:Ljava/io/ByteArrayOutputStream;
     :try_start_0
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     invoke-virtual {v1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
-    .line 175
     invoke-virtual {v1, p1}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 182
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
-    .line 185
-    :try_start_1
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-
     goto :goto_0
 
-    .line 186
     :catch_0
     move-exception v0
 
-    .line 188
     .local v0, e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_0
-
-    .line 176
-    .end local v0           #e:Ljava/io/IOException;
-    :catch_1
-    move-exception v0
-
-    .line 177
-    .restart local v0       #e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-
-    .line 178
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string v3, "appendTextString: failed when write a new Text-string"

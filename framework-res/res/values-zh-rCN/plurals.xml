@@ -76,7 +76,7 @@
         <item quantity="one">打开可用的 WLAN 网络</item>
     </plurals>
     <plurals name="matches_found">
-        <item quantity="other">%d / %d</item>
+        <item quantity="other">%1$d / %2$d</item>
         <item quantity="one">1 个匹配</item>
     </plurals>
     <plurals name="wimax_available">

@@ -15,13 +15,7 @@
 
 
 # static fields
-.field public static final CB_RECEIVED_ACTION:Ljava/lang/String; = "android.intent.action.CB_RECEIVED"
-
 .field public static final DATA_SMS_RECEIVED_ACTION:Ljava/lang/String; = "android.intent.action.DATA_SMS_RECEIVED"
-
-.field public static final DEVICE_FULL_ACTION:Ljava/lang/String; = "android.provider.Telephony.DEVICE_FULL"
-
-.field public static final DX_WAP_PUSH_RECEIVED_ACTION:Ljava/lang/String; = "android.provider.Telephony.DX_WAP_PUSH_RECEIVED"
 
 .field public static final RESULT_SMS_GENERIC_ERROR:I = 0x2
 

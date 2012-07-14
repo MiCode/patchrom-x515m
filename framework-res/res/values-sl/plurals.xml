@@ -76,7 +76,7 @@
         <item quantity="one">Odpri razpoložljivo brezžično omrežje</item>
     </plurals>
     <plurals name="matches_found">
-        <item quantity="other">%d of %d</item>
+        <item quantity="other">%1$d of %2$d</item>
         <item quantity="one">1 match</item>
     </plurals>
     <plurals name="wimax_available">

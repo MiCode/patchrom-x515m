@@ -619,14 +619,13 @@
 
     iput-object v3, v0, Lcom/android/server/ConnectivityService;->mLogConnSrv:Ljava/util/LinkedList;
 
-    .line 431
     const-string v3, "ConnectivityService starting up"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v3}, Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
 
-    .line 433
+    invoke-static/range {p1 .. p1}, Lcom/miui/server/FirewallService;->setupService(Landroid/content/Context;)V
     new-instance v20, Landroid/os/HandlerThread;
 
     const-string v3, "ConnectivityServiceThread"
@@ -22724,16 +22723,27 @@
 
     invoke-interface {v3, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1708
     :cond_8
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1710
+    invoke-static {}, Lmiui/net/FirewallManager;->getInstance()Lmiui/net/FirewallManager;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingUid()I
+
+    move-result v4
+
+    invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v3, v4, v5, v11}, Lmiui/net/FirewallManager;->onStartUsingNetworkFeature(III)V
+
     if-ltz v16, :cond_9
 
-    .line 1712
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V

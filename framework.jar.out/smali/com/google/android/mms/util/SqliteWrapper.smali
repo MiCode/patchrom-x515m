@@ -27,17 +27,15 @@
     .parameter "e"
 
     .prologue
-    .line 100
-    invoke-static {p0}, Lcom/google/android/mms/util/SqliteWrapper;->isLowStorage(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/google/android/mms/util/SqliteWrapper;->isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 101
     const v0, 0x104011d
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -136,74 +134,56 @@
     goto :goto_0
 .end method
 
-.method public static isLowStorage(Landroid/content/Context;)Z
-    .locals 9
+.method private static isLowMemory(Landroid/content/Context;)Z
+    .locals 3
     .parameter "context"
 
     .prologue
-    .line 79
-    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+    if-nez p0, :cond_0
 
-    move-result-object v5
+    const/4 v2, 0x0
 
-    invoke-virtual {v5}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 81
-    .local v3, path:Ljava/lang/String;
-    const/16 v5, 0x40
-
-    sget-short v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    if-ne v5, v6, :cond_0
-
-    .line 82
-    const-string v3, "/data/data"
-
-    .line 84
-    :cond_0
-    new-instance v4, Landroid/os/StatFs;
-
-    invoke-direct {v4, v3}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
-
-    .line 87
-    .local v4, stat:Landroid/os/StatFs;
-    invoke-virtual {v4}, Landroid/os/StatFs;->getAvailableBlocks()I
-
-    move-result v5
-
-    int-to-long v0, v5
-
-    .line 88
-    .local v0, availableBlocks:J
-    invoke-virtual {v4}, Landroid/os/StatFs;->getBlockSize()I
-
-    move-result v2
-
-    .line 92
-    .local v2, nBlockSize:I
-    int-to-long v5, v2
-
-    mul-long/2addr v5, v0
-
-    const-wide/32 v7, 0x800000
-
-    cmp-long v5, v5, v7
-
-    if-gez v5, :cond_1
-
-    .line 93
-    const/4 v5, 0x1
-
-    .line 95
     :goto_0
-    return v5
+    return v2
 
-    :cond_1
-    const/4 v5, 0x0
+    :cond_0
+    const-string v2, "activity"
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    .local v0, am:Landroid/app/ActivityManager;
+    new-instance v1, Landroid/app/ActivityManager$MemoryInfo;
+
+    invoke-direct {v1}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
+
+    .local v1, outInfo:Landroid/app/ActivityManager$MemoryInfo;
+    invoke-virtual {v0, v1}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
+
+    iget-boolean v2, v1, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
 
     goto :goto_0
+.end method
+
+.method private static isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
+    .locals 2
+    .parameter "e"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteException;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "unable to open database file"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static query(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;

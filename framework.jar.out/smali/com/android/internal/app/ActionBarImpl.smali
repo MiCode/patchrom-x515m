@@ -3041,26 +3041,20 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarContextView;->sendAccessibilityEvent(I)V
 
-    .line 402
     iput-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionMode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
 
-    .line 404
     iget-object v2, p0, Lcom/android/internal/app/ActionBarImpl;->mActionMode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
 
     if-eqz v2, :cond_3
 
-    .line 405
     iget-object v2, p0, Lcom/android/internal/app/ActionBarImpl;->mActionMode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
 
     iget-boolean v3, p0, Lcom/android/internal/app/ActionBarImpl;->mIsShowActionBarViewOnFinished:Z
 
     invoke-virtual {v2, v3}, Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;->setShowHideActionBarViewOnActionModeFinished(Z)V
 
-    .line 408
     :cond_3
-    invoke-virtual {p0}, Lcom/android/internal/app/ActionBarImpl;->show()V
 
-    .line 411
     .end local v0           #mode:Lcom/android/internal/app/ActionBarImpl$ActionModeImpl;
     :goto_1
     return-object v0

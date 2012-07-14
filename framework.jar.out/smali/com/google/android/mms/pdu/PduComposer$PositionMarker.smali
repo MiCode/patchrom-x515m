@@ -31,7 +31,7 @@
     .line 1336
     iput-object p1, p0, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     return-void
 .end method
 
-.method static synthetic access$602(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
+.method static synthetic access$402(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -60,7 +60,7 @@
     return p1
 .end method
 
-.method static synthetic access$702(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
+.method static synthetic access$502(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -84,7 +84,7 @@
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
     #getter for: Lcom/google/android/mms/pdu/PduComposer;->mStack:Lcom/google/android/mms/pdu/PduComposer$BufferStack;
-    invoke-static {v1}, Lcom/google/android/mms/pdu/PduComposer;->access$300(Lcom/google/android/mms/pdu/PduComposer;)Lcom/google/android/mms/pdu/PduComposer$BufferStack;
+    invoke-static {v1}, Lcom/google/android/mms/pdu/PduComposer;->access$100(Lcom/google/android/mms/pdu/PduComposer;)Lcom/google/android/mms/pdu/PduComposer$BufferStack;
 
     move-result-object v1
 

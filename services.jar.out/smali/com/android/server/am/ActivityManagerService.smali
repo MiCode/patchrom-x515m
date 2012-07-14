@@ -1487,11 +1487,11 @@
 
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 1631
     .local v1, systemDir:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    .line 1638
+    invoke-static {v1, v0}, Lmiui/os/Environment;->init(Ljava/io/File;Ljava/io/File;)V
+
     new-instance v2, Lcom/android/server/am/BatteryStatsService;
 
     new-instance v3, Ljava/io/File;
@@ -6587,6 +6587,20 @@
 
     .line 12960
     :cond_2f
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/ActivityManagerService;->getRunningAppProcesses()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-virtual/range {v43 .. v43}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, v22
+
+    invoke-static {v0, v3, v5}, Lcom/android/server/am/ExtraActivityManagerService;->adjustMediaButtonReceivers(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V
+
+
     new-instance v7, Lcom/android/server/am/BroadcastRecord;
 
     const/16 v29, 0x0
@@ -12354,6 +12368,12 @@
     move-object/from16 v0, v25
 
     move-object/from16 v1, p1
+
+    invoke-virtual {v0, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v3, "crash"
+
+    move-object/from16 v1, p2
 
     invoke-virtual {v0, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -24149,84 +24169,68 @@
 
     goto :goto_0
 
-    .line 1463
     :catch_0
     move-exception v6
 
     goto :goto_0
 
-    .line 1466
     :cond_0
     :try_start_2
     monitor-exit v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1468
     iget-object v4, v5, Lcom/android/server/am/ActivityManagerService$AThread;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    .line 1469
     .local v4, m:Lcom/android/server/am/ActivityManagerService;
     sput-object v4, Lcom/android/server/am/ActivityManagerService;->mSelf:Lcom/android/server/am/ActivityManagerService;
 
-    .line 1470
     invoke-static {}, Landroid/app/ActivityThread;->systemMain()Landroid/app/ActivityThread;
 
     move-result-object v0
 
-    .line 1471
     .local v0, at:Landroid/app/ActivityThread;
     sput-object v0, Lcom/android/server/am/ActivityManagerService;->mSystemThread:Landroid/app/ActivityThread;
 
-    .line 1472
     invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemContext()Landroid/app/ContextImpl;
 
     move-result-object v2
 
-    .line 1473
     .local v2, context:Landroid/content/Context;
-    const v6, 0x103006b
+    const v6, 0x103006e
 
     invoke-virtual {v2, v6}, Landroid/content/Context;->setTheme(I)V
 
-    .line 1474
     iput-object v2, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 1475
     iput p0, v4, Lcom/android/server/am/ActivityManagerService;->mFactoryTest:I
 
-    .line 1476
     new-instance v6, Lcom/android/server/am/ActivityStack;
 
     invoke-direct {v6, v4, v2, v8}, Lcom/android/server/am/ActivityStack;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Z)V
 
     iput-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mMainStack:Lcom/android/server/am/ActivityStack;
 
-    .line 1478
     iget-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
 
     invoke-virtual {v6, v2}, Lcom/android/server/am/BatteryStatsService;->publish(Landroid/content/Context;)V
 
-    .line 1479
     iget-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mUsageStatsService:Lcom/android/server/am/UsageStatsService;
 
     invoke-virtual {v6, v2}, Lcom/android/server/am/UsageStatsService;->publish(Landroid/content/Context;)V
 
-    .line 1482
     new-instance v6, Lcom/android/server/am/HtcErrorReportManager;
 
     invoke-direct {v6, v4, v2}, Lcom/android/server/am/HtcErrorReportManager;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;)V
 
     iput-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mHtcErrorReportManager:Lcom/android/server/am/HtcErrorReportManager;
 
-    .line 1483
     new-instance v6, Lcom/htc/server/HtcDeviceInfoManager;
 
     invoke-direct {v6, v4, v2}, Lcom/htc/server/HtcDeviceInfoManager;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;)V
 
     iput-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mHtcDeviceInfoManager:Lcom/htc/server/HtcDeviceInfoManager;
 
-    .line 1485
     sget-object v6, Lcom/android/server/am/ActivityManagerService;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -76562,7 +76566,7 @@
 
     iget-object v2, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_10
 
     .line 14087
     move-object/from16 v0, v21
@@ -76650,12 +76654,10 @@
 
     invoke-direct/range {v2 .. v15}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;Ljava/lang/String;ZZII)I
 
-    .line 14097
     and-int/lit8 v2, v22, 0x4
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_10
 
-    .line 14098
     const/4 v7, 0x0
 
     const/4 v8, 0x0
@@ -76689,6 +76691,21 @@
     move-object/from16 v6, p0
 
     invoke-direct/range {v6 .. v19}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;Ljava/lang/String;ZZII)I
+
+    :cond_10
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityManagerService;->mHandler:Landroid/os/Handler;
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, v27
+
+    invoke-static {v0, v1, v2, v3}, Landroid/app/MiuiThemeHelper;->handleExtraConfigurationChanges(ILandroid/content/res/Configuration;Landroid/content/Context;Landroid/os/Handler;)V
 
     .line 14106
     .end local v5           #intent:Landroid/content/Intent;
