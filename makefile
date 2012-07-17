@@ -23,7 +23,7 @@ local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation \
 	HTC_IME HTCCamera HtcFMRadio HTMLViewer KeyChain LiveWallpapers LMW \
 	NoiseField OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup SmartNetwork \
 	talkback TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter FaceLock HtcMusicEnhancer HTCAlbum \
-	MediaProvider
+	MediaProvider HtcVideoPlayer
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
