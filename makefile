@@ -18,7 +18,7 @@ local-miui-modified-apps := Phone ThemeManager Mms MiuiHome Settings MiuiSystemU
 local-miui-removed-apps  := LatinIME MiuiGallery MediaProvider
 
 # All apps need to be reserved from original ZIP file
-local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation \
+local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation BrcmBluetoothServices \
 	CertInstaller CustomizationSettingsProvider DefaultContainerService DFPI DrmProvider GoogleTTS \
 	HTC_IME HTCCamera HtcFMRadio HTMLViewer KeyChain LiveWallpapers LMW \
 	NoiseField OneTimeInitializer PhaseBeam PluginManager SDCardWizard SharedStorageBackup SmartNetwork \
