@@ -13,9 +13,9 @@ local-modified-apps := HTCCamera
 
 local-modified-jars := HTCExtension
 
-local-miui-modified-apps := Phone ThemeManager Mms MiuiHome Settings MiuiSystemUI
+local-miui-modified-apps := Phone ThemeManager Mms MiuiHome Settings MiuiSystemUI MiuiGallery
 # All apks from MIUI
-local-miui-removed-apps  := LatinIME MiuiGallery MediaProvider
+local-miui-removed-apps  := LatinIME MediaProvider
 
 # All apps need to be reserved from original ZIP file
 local-phone-apps := ApplicationsProvider AppSharing BackupRestoreConfirmation BrcmBluetoothServices \

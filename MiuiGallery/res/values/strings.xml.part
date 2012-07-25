@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="camera_path">/DCIM/100MEDIA</string>
+    <string name="app_name">Cloud Gallery</string>
+</resources>
