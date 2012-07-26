@@ -433,7 +433,7 @@
     <string name="permlab_diagnostic">讀寫 diag 擁有的資源</string>
     <string name="permdesc_diagnostic">允許應用程式讀寫 diag 群組的資源；例如：/dev 裡的檔案。這可能會影響系統穩定性與安全性。此功能僅供製造商或技術人員用於硬體規格偵測。</string>
     <string name="permlab_changeComponentState">啟用或停用應用程式元件</string>
-    <string name="permdesc_changeComponentState">允許應用程式啟用或停用其他應用程式的元件。請注意，惡意應用程式可利用此功能，停用重要的平板電腦功能。此外，這個權限可能會導致應用程式元件無法使用、不一致或不穩定，因此請斟酌使用。</string>
+    <string name="permdesc_changeComponentState">允許應用程式啟用或停用其他應用程式的元件。請注意，惡意應用程式可利用此功能，停用重要的手機功能。此外，這個權限可能會導致應用程式元件無法使用、不一致或不穩定，因此請斟酌使用。</string>
     <string name="permlab_setPreferredApplications">設定喜好的應用程式</string>
     <string name="permdesc_setPreferredApplications">允許應用程式修改您偏好使用的應用程式。惡意程式可能依此秘密竄改執行的程式，偽造已存在的程式以收集私人資料。</string>
     <string name="permlab_writeSettings">編輯全域系統設定</string>
@@ -752,7 +752,7 @@
 
 請在 %d 秒後再試一次。"</string>
     <string name="lockscreen_failed_attempts_almost_at_wipe" formatted="false">您嘗試解除這台平板電腦的鎖定已失敗 %d 次，目前還剩 %d次機會。如果失敗次數超過限制，電腦將恢復原廠設定，所有使用者資料都會遺失。</string>
-    <string name="lockscreen_failed_attempts_now_wiping">您嘗試解除這台平板電腦的鎖定已失敗 %d 次，平板電腦現在將恢復原廠設定。</string>
+    <string name="lockscreen_failed_attempts_now_wiping">您嘗試解除這支手機的鎖定已失敗 %d 次，手機現在將恢復原廠設定。</string>
     <string name="lockscreen_too_many_failed_attempts_countdown">%d 秒後再試一次。</string>
     <string name="lockscreen_forgot_pattern_button_text">忘記解鎖圖形？</string>
     <string name="lockscreen_glogin_forgot_pattern">解除帳號鎖定</string>
@@ -1082,7 +1082,7 @@
     <string name="tethered_notification_title">啟動數據連線或無線基地台已啟用</string>
     <string name="tethered_notification_message">輕觸以設定</string>
     <string name="back_button_label">返回</string>
-    <string name="next_button_label">繼續</string>
+    <string name="next_button_label">下一步</string>
     <string name="skip_button_label">略過</string>
     <string name="throttle_warning_notification_title">高行動數據用量</string>
     <string name="throttle_warning_notification_message">輕觸即可瞭解更多有關行動數據用量的資訊</string>
@@ -1266,7 +1266,8 @@
     <string name="install_notify_title">IT 已封鎖安裝：</string>
     <string name="uninstall_notify_title">IT 已封鎖解除安裝：</string>
     <string name="wifi_notify_title">IT 已停用 Wi-Fi</string>
-    <string name="sim_puk_contact_customer_care_information">Please contact Customer Care to get the PUK code</string>
+    <string name="resolverActivity_clearDefaultHintMsg">清除首頁設定 > 應用程式中的預設值。</string>
+    <string name="sim_puk_contact_customer_care_information">請聯絡客服中心以取得 PUK 碼</string>
     <string name="permlab_accessCWFolder">存取自訂精靈功能資料夾</string>
     <string name="permdesc_accessCWFolder">允許應用程式存取自訂精靈功能資料夾</string>
     <string name="permlab_accessRecoveryFolder">存取復原資料夾</string>
