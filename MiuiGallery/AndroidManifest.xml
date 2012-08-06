@@ -30,16 +30,6 @@
             </intent-filter>
         </activity>
         <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.miui.gallery.app.Wallpaper" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
-            <intent-filter android:label="@string/camera_setas_wallpaper">
-                <action android:name="android.intent.action.ATTACH_DATA" />
-                <data android:mimeType="image/*" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter android:label="@string/app_name">
-                <action android:name="android.intent.action.SET_WALLPAPER" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="android.wallpaper.preview" android:resource="@xml/wallpaper_picker_preview" />
         </activity>
         <activity android:label="@string/crop_label" android:name="com.miui.gallery.app.CropImage" android:process=":crop" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter android:label="@string/crop_label">
