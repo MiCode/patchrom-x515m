@@ -2,6 +2,5 @@
 <resources>
     <bool name="has_led">true</bool>
     <bool name="has_camera_key">true</bool>
-    <bool name="has_volume_wake">true</bool>
     <bool name="only_get_wifi_changed_config">true</bool>
 </resources>
