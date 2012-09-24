@@ -4435,8 +4435,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1724
-    if-nez v22, :cond_25
+    invoke-static/range {v22 .. v22}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v31
+
+    if-eqz v31, :cond_25
 
     .line 1725
     move-object/from16 v0, p0
