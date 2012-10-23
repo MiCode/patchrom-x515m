@@ -18,6 +18,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" />
+    <uses-permission android:name="com.xiaomi.permission.CLOUD_MANAGER" />
     <supports-screens android:anyDensity="true" android:smallScreens="false" android:normalScreens="true" android:largeScreens="true" />
     <application android:theme="@style/Theme.Gallery" android:label="@string/app_name" android:icon="@mipmap/ic_launcher_gallery" android:name="com.miui.gallery.app.GalleryAppImpl">
         <uses-library android:name="miui-framework" />
@@ -30,6 +33,16 @@
             </intent-filter>
         </activity>
         <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.miui.gallery.app.Wallpaper" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:label="@string/camera_setas_wallpaper">
+                <action android:name="android.intent.action.ATTACH_DATA" />
+                <data android:mimeType="image/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.SET_WALLPAPER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="android.wallpaper.preview" android:resource="@xml/wallpaper_picker_preview" />
         </activity>
         <activity android:label="@string/crop_label" android:name="com.miui.gallery.app.CropImage" android:process=":crop" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter android:label="@string/crop_label">
@@ -46,8 +59,14 @@
             </intent-filter>
         </activity>
         <activity android:theme="@style/SettingsActivityTheme" android:name="com.miui.gallery.settings.GallerySettings" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/SettingsActivityTheme" android:name="com.miui.gallery.settings.GalleryCloudSettings" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="com.miui.gallery.cloud.provider.SYNC_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <provider android:name="com.miui.gallery.provider.GalleryProvider" android:authorities="com.miui.gallery.provider" android:syncable="false" android:grantUriPermissions="true" />
-        <provider android:name="com.miui.gallery.provider.GalleryCloudProvider" android:exported="true" android:authorities="com.miui.gallery.cloud.provider" />
+        <provider android:label="@string/gallery_cloud_provider_name" android:name="com.miui.gallery.provider.GalleryCloudProvider" android:exported="true" android:authorities="com.miui.gallery.cloud.provider" />
         <receiver android:name="com.miui.gallery.cloud.AccountBroadcastReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED" />
@@ -56,6 +75,12 @@
         <receiver android:name="com.miui.gallery.cloud.NeedSaveToCloudReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="com.miui.gallery.save_to_cloud_action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.miui.gallery.cloud.PowerChangedRequestSyncReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
         <service android:name="com.miui.gallery.cloud.GallerySyncService" android:exported="true">
